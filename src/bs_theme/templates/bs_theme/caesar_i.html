@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+  Caesar 1 Challenge
+{% endblock %}
+{% block content %}
+	<div class="container theme-showcase" role="main">
+		{% for c in challenge %}
+		<h2>{{ c.title }}</h2>
+		<p> {{ c.content }}
+		{% endfor %}
+		<form action="{% url 'bs_theme:caesar_i' %}" method="get">
+            <!-- {% csrf_token %} -->
+              <div class="form-group">
+			    <label for="plaintext">Plaintext: </label>
+			    <input type="hidden" class="form-control" id="user_id" aria-describedby="emailHelp" name="user_id" value="{{ user.id }}">
+			    <input type="text" class="form-control" id="plaintext" aria-describedby="emailHelp" placeholder="Enter plain text to be enciphered" name="pt">
+			      <div class="form-group">
+				    <label for="rotate">Rotate Value: </label>
+				    <select multiple class="form-control" id="rot" name="rot">
+				    	{% for x in choices %}
+				     	<option>{{ x }}</option>
+				     	{% endfor %}
+				    </select>
+  				</div>
+			    <button type="submit" class="btn btn-primary">Encrypt</button>
+			</br>
+			    <large id="ciphertext" class="form-text text-muted">Plainttext: {{ pt }}</large>
+			</br>
+			    <large id="ciphertext" class="form-text text-muted">Ciphertext: {{ ct }}</large>
+			  </div>
+		</form>
+	</div>
+{% endblock %}

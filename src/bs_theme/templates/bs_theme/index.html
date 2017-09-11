@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+  Intro to Crypto and Code Breaking
+{% endblock %}
+{% block content %}
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>An Introduction to Cryptography and Code Breaking</h1>
+        <p>Feel free to follow along on screen or with your personal mobile device by pointing your browser to 192.168.1.23</p>
+      </br>
+        <p>This demonstration will cover the very first use of codes in recorded history and how to break those codes.  There will also be a brief look at how Euclid's algorithm for finding relative primes between two large prime numbers is used in todays industry standard cryptographic algorithms.</p>
+      </br>
+        <p>Other topics included in this presentation:</p>
+        <ul>
+          <li>Why a degree in Computer Science and / or Math is important for Cryptography and Information Security careers</li>
+          <li>Raspberry Pi Computer and GPIO (general purpose input / output) Pins used to control LED's (light emitting diodes) based on user input from web app</li>
+          <li>Development of this Web Application</li>
+        </ul>
+      </div>
+
+
+      <div class="page-header">
+        <h1>Leader Board</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {% for tu in top_users %}
+                <tr>
+                  <td>{{ tu.user_id }}</td>
+                  <td>{{ tu.score }}</td>
+                </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+{% endblock %}

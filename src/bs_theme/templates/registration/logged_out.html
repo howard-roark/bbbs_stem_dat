@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Login{% endblock %}
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container theme-showcase panel panel-default">
+	<h1>Successfully Logged Out</h1>
+	<p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+	<p><a href="{% url 'bs_theme:login' %}" class="btn btn-default">{% trans 'Log in again' %}</a></p>
+</div>
+
+{% endblock %}
